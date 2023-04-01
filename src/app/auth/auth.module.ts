@@ -8,4 +8,4 @@ import { RegisterComponent } from "./components/register/register.component";
   declarations: [RegisterComponent],
   imports: [CommonModule, ReactiveFormsModule, AuthRoutingModule],
 })
-export class AuthModule { }
+export class AuthModule {}
