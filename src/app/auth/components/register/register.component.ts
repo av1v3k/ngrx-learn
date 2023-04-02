@@ -1,8 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 
+import { appStateI } from "src/app/shared/types/appstate.interface";
 import { registerAction } from "../../store/actions";
+import { isSubmittingSelector } from "../../store/selectors";
 
 @Component({
   selector: "app-register",
@@ -11,11 +14,18 @@ import { registerAction } from "../../store/actions";
 })
 export class RegisterComponent implements OnInit {
   signupform: FormGroup;
+  isSubmitting$: Observable<boolean>;
 
-  constructor(private fb: FormBuilder, private store: Store) { }
+  constructor(private fb: FormBuilder, private store: Store<appStateI>) { }
 
   ngOnInit(): void {
     this.initializeForm();
+    this.initializeValues();
+  }
+
+  initializeValues() {
+    this.isSubmitting$ = this.store.select(isSubmittingSelector);
+    console.log('submitting', this.isSubmitting$);
   }
 
   initializeForm() {
