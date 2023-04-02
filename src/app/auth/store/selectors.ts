@@ -6,6 +6,6 @@ export const authFeatureSelector = (state: appStateI) => state.auth; // use eith
 // export const authFeatureSelector = createFeatureSelector<appStateI, authstateI>('auth');
 
 export const isSubmittingSelector = createSelector(
-    authFeatureSelector,
-    (state: authstateI) => state.isSubmitting
+    authFeatureSelector, // which feature selector
+    (state: authstateI) => state.isSubmitting // method for getting the particular 'key' in that feature  which we are interested in
 );
