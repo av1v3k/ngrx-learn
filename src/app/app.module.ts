@@ -10,10 +10,15 @@ import { environment } from "src/environments/environment";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, AuthModule, StoreModule.forRoot({}), StoreDevtoolsModule.instrument({
-    maxAge: 25,
-    logOnly: environment.production
-  })],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AuthModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })],
   providers: [],
   bootstrap: [AppComponent],
 })
