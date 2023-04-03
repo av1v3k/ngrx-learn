@@ -4,7 +4,9 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 
 import { appStateI } from "src/app/shared/types/appstate.interface";
-import { registerAction } from "../../store/actions";
+import { currentUserI } from "src/app/shared/types/currentuser.interface";
+import { AuthService } from "../../services/auth.service";
+import { registerAction } from "../../store/actions/register.actions";
 import { isSubmittingSelector } from "../../store/selectors";
 
 @Component({
@@ -16,7 +18,7 @@ export class RegisterComponent implements OnInit {
   signupform: FormGroup;
   isSubmitting$: Observable<boolean>;
 
-  constructor(private fb: FormBuilder, private store: Store<appStateI>) { }
+  constructor(private fb: FormBuilder, private store: Store<appStateI>, private authservice: AuthService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -25,7 +27,6 @@ export class RegisterComponent implements OnInit {
 
   initializeValues() {
     this.isSubmitting$ = this.store.select(isSubmittingSelector);
-    console.log('submitting', this.isSubmitting$);
   }
 
   initializeForm() {
@@ -40,6 +41,9 @@ export class RegisterComponent implements OnInit {
     console.log({ ...this.signupform.value });
     // this.store.dispatch(registerAction({ ...this.signupform.value }));
     this.store.dispatch(registerAction({ request: this.signupform.value }));
+    this.authservice.register(this.signupform.value).subscribe((data: currentUserI) => {
+      console.log(data);
+    })
     // console.log(this.signupform.value, this.signupform.valid);
   }
 }

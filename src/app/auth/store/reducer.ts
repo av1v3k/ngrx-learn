@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { authstateI } from "../types/authstate.interface";
-import { registerAction } from "./actions";
+import { registerAction } from "./actions/register.actions";
 
 const initialState: authstateI = {
     isSubmitting: false
