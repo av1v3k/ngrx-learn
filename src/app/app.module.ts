@@ -18,7 +18,7 @@ import { environment } from "src/environments/environment";
     AuthModule,
     // HttpClientModule,
     StoreModule.forRoot({}),
-    EffectsModule.forRoot(),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production

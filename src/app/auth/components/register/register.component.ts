@@ -8,6 +8,7 @@ import { currentUserI } from "src/app/shared/types/currentuser.interface";
 import { AuthService } from "../../services/auth.service";
 import { registerAction } from "../../store/actions/register.actions";
 import { isSubmittingSelector } from "../../store/selectors";
+import { registerUserI } from "../../types/registerRequest.interface";
 
 @Component({
   selector: "app-register",
@@ -40,10 +41,9 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     console.log({ ...this.signupform.value });
     // this.store.dispatch(registerAction({ ...this.signupform.value }));
-    this.store.dispatch(registerAction({ request: this.signupform.value }));
-    this.authservice.register(this.signupform.value).subscribe((data: currentUserI) => {
-      console.log(data);
-    })
-    // console.log(this.signupform.value, this.signupform.valid);
+    const request: registerUserI = {
+      user: this.signupform.value
+    }
+    this.store.dispatch(registerAction({ request }));
   }
 }
