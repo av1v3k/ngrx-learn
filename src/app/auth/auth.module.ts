@@ -11,6 +11,7 @@ import { authReducer } from "./store/reducer";
 import { AuthService } from "./services/auth.service";
 import { RegisterEffect } from "./store/effects/register.effects";
 import { BackEndErrorMessagesModule } from "../shared/modules/backenderrormessages/backenderrormessages.module";
+import { PersistenceService } from "../shared/services/persistence.service";
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -23,6 +24,6 @@ import { BackEndErrorMessagesModule } from "../shared/modules/backenderrormessag
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([RegisterEffect])
   ],
-  providers: [AuthService]
+  providers: [AuthService, PersistenceService]
 })
 export class AuthModule { }
