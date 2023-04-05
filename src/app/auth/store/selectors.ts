@@ -9,3 +9,8 @@ export const isSubmittingSelector = createSelector(
     authFeatureSelector, // which feature selector
     (state: authstateI) => state.isSubmitting // method for getting the particular 'key' in that feature  which we are interested in
 );
+
+export const validationerrorsSelectors = createSelector(
+    authFeatureSelector,
+    (state: authstateI) => state.validationerrors
+)
