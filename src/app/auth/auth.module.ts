@@ -12,6 +12,7 @@ import { AuthService } from "./services/auth.service";
 import { RegisterEffect } from "./store/effects/register.effects";
 import { BackEndErrorMessagesModule } from "../shared/modules/backenderrormessages/backenderrormessages.module";
 import { PersistenceService } from "../shared/services/persistence.service";
+import { LoginEffect } from "./store/effects/login.effects";
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -22,7 +23,7 @@ import { PersistenceService } from "../shared/services/persistence.service";
     HttpClientModule,
     BackEndErrorMessagesModule,
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([RegisterEffect])
+    EffectsModule.forFeature([RegisterEffect, LoginEffect])
   ],
   providers: [AuthService, PersistenceService]
 })
