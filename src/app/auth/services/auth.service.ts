@@ -7,11 +7,16 @@ import { currentUserI } from "src/app/shared/types/currentuser.interface";
 import { registerUserI } from "../types/registerRequest.interface";
 import { environment } from "src/environments/environment";
 import { authresponseI } from "../types/authresponse.interface";
+import { loginUserI } from "../types/loginRequest.interface";
 
 @Injectable()
 export class AuthService {
 
     constructor(private http: HttpClient) {
+    }
+
+    getUser(response: authresponseI): currentUserI {
+        return response.user;
     }
 
 
@@ -20,8 +25,18 @@ export class AuthService {
         return this.http
             .post<authresponseI>(url, data)
             .pipe(
-                tap(d => console.log(d)),
-                map(data => data.user)
+                tap(rdata => console.log(rdata)),
+                map(this.getUser)
             );
+    }
+
+    login(data: loginUserI): Observable<currentUserI> {
+        const url = environment.apiUrl + '/users/login';
+        return this.http
+            .post<authresponseI>(url, data)
+            .pipe(
+                tap(rdata => console.log(rdata)),
+                map(this.getUser)
+            )
     }
 }

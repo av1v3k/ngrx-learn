@@ -30,3 +30,10 @@ Use the below command to pretty your files in your project.
 
 npm i prettier --save-dev
 npx prettier --write .
+
+
+Registered Users on SignUp:
+
+slsdjf7788
+slsdjf7788@gmail.com
+password: slsdjf7788
