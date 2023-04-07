@@ -12,7 +12,7 @@ import { isSubmittingSelector, validationerrorsSelectors } from "../../store/sel
 import { registerUserI } from "../../types/registerRequest.interface";
 
 @Component({
-  selector: "app-register",
+  selector: "mc-register",
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.scss"],
 })
