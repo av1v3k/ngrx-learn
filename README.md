@@ -37,3 +37,7 @@ Registered Users on SignUp:
 slsdjf7788
 slsdjf7788@gmail.com
 password: slsdjf7788
+
+Ref Links:
+https://api.realworld.io/api-docs/#/default
+https://angular.realworld.io/register

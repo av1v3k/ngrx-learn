@@ -51,15 +51,13 @@ export const authReducer = createReducer(
         }
     )),
     on(loginActionSuccess, (state, action): authstateI => {
-        return (
-            {
-                ...state,
-                isSubmitting: false,
-                isLoggedin: true,
-                currentUser: action.currentUser,
-                validationerrors: null
-            }
-        )
+        return ({
+            ...state,
+            isSubmitting: false,
+            isLoggedin: true,
+            currentUser: action.currentUser,
+            validationerrors: null
+        })
     }),
     on(loginActionFailure, (state, action): authstateI => {
         return ({

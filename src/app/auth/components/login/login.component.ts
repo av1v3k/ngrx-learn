@@ -5,7 +5,6 @@ import { Observable } from "rxjs";
 
 import { appStateI } from "src/app/shared/types/appstate.interface";
 import { backenderrorobjI } from "src/app/shared/types/backenderrors.interface";
-import { AuthService } from "src/app/auth/services/auth.service";
 import { loginAction } from "src/app/auth/store/actions/login.actions";
 import { isSubmittingSelector, validationerrorsSelectors } from "src/app/auth/store/selectors";
 import { registerUserI } from "src/app/auth/types/registerRequest.interface";
@@ -20,7 +19,7 @@ export class LoginComponent implements OnInit {
   isSubmitting$: Observable<boolean>;
   backendErrors$: Observable<backenderrorobjI | null>;
 
-  constructor(private fb: FormBuilder, private store: Store<appStateI>, private authservice: AuthService) { }
+  constructor(private fb: FormBuilder, private store: Store<appStateI>) { }
 
   ngOnInit(): void {
     this.initializeForm();
