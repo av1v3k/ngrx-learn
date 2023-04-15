@@ -5,5 +5,6 @@ export interface authstateI {
     isSubmitting: boolean,
     currentUser: currentUserI | null,
     isLoggedin: boolean | null,
-    validationerrors: backenderrorobjI | null
+    validationerrors: backenderrorobjI | null,
+    isLoading: boolean
 }

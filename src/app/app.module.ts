@@ -10,6 +10,9 @@ import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
 import { environment } from "src/environments/environment";
 import { TopBarModule } from "./shared/modules/topbar/topbar.module";
+import { PersistenceService } from "./shared/services/persistence.service";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "./shared/services/authinterceptor.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +27,14 @@ import { TopBarModule } from "./shared/modules/topbar/topbar.module";
       maxAge: 25,
       logOnly: environment.production
     })],
-  providers: [],
+  providers: [
+    PersistenceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
