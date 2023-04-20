@@ -2,10 +2,10 @@ import { Component } from "@angular/core";
 
 
 @Component({
-    selector: 'mc-global-feed',
-    templateUrl: './globalfeed.component.html',
-    styleUrls: ['./globalfeed.component.scss']
+    selector: 'mc-feed',
+    templateUrl: './feed.component.html',
+    styleUrls: ['./feed.component.scss']
 })
-export class GlobalFeedComponent {
+export class FeedComponent {
 
 }

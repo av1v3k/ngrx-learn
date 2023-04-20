@@ -13,7 +13,7 @@ import { TopBarModule } from "./shared/modules/topbar/topbar.module";
 import { PersistenceService } from "./shared/services/persistence.service";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./shared/services/authinterceptor.service";
-import { GlobalFeedModule } from "./globalfeed/globalfeed.module";
+// import { GlobalFeedModule } from "./globalfeed/globalfeed.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +28,7 @@ import { GlobalFeedModule } from "./globalfeed/globalfeed.module";
       maxAge: 25,
       logOnly: environment.production
     }),
-    GlobalFeedModule
+    // GlobalFeedModule
   ],
   providers: [
     PersistenceService,
